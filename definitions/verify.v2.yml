@@ -14,7 +14,7 @@ security:
   - bearerAuth: []
 
 paths:
-  /requests:
+  /:
     post:
       operationId: newRequest
       summary: Request a verification be sent to a user
@@ -51,28 +51,15 @@ paths:
                         example: 'https://developer.nexmo.com/api-errors/verify#invalid-parameters'
                       detail:
                         description: Additional information about the error
-                        example: Missing required field `to`
+                        example: Missing required field `workflow`
         "429":
-          description: An error occured. Check the response for more information
+          description: "Rate Limited"
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/Error'
-                  - type: object
-                    description: Requests Throttled
-                    properties:
-                      title:
-                        description: Generic error message
-                        example: Your request has been throttled. Please try again later.
-                      type:
-                        description: Link to error / remediation options
-                        example: 'https://developer.nexmo.com/api-errors/verify#throttled'
-                      detail:
-                        description: Additional information about the error
-                        example: Throughput Rate Exceeded - please wait [ 99 ] and retry
+                $ref: "#/components/schemas/ErrorThrottled"
 
-  /requests/{request_id}:
+  /{request_id}:
     parameters:
       - $ref: '#/components/parameters/request_id'
     get:
@@ -87,24 +74,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/VerifyResource'
         "404":
-          description: The request could not be found
+          description: "No such request"
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/Error'
-                  - type: object
-                    description: Request Not Found
-                    properties:
-                      title:
-                        description: Generic error message
-                        example: The request cannot be found
-                      type:
-                        description: Link to error / remediation options
-                        example: 'https://developer.nexmo.com/api-errors/verify#not-found'
-                      detail:
-                        description: Additional information about the error
-                        example: The request ID you request cannot be found.
+                $ref: "#/components/schemas/ErrorInvalidRequest"
 
     post:
       operationId: checkPIN
@@ -117,62 +91,23 @@ paths:
         "204":
           description: No content
         "404":
-          description: The request could not be found
+          description: "No such request"
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/Error'
-                  - type: object
-                    description: Request Not Found
-                    properties:
-                      title:
-                        description: Generic error message
-                        example: The request cannot be found
-                      type:
-                        description: Link to error / remediation options
-                        example: 'https://developer.nexmo.com/api-errors/verify#not-found'
-                      detail:
-                        description: Additional information about the error
-                        example: The request ID you request cannot be found.
+                $ref: "#/components/schemas/ErrorInvalidRequest"
         "409":
-          description: Request time limit has been exceeded
+          description: "Expired request"
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/Error'
-                  - type: object
-                    description: Request Expired
-                    properties:
-                      title:
-                        description: Generic error message
-                        example: PIN cannot be verified against an expired request
-                      type:
-                        description: Link to error / remediation options
-                        example: 'https://developer.nexmo.com/api-errors/verify#request-ttl-passed'
-                      detail:
-                        description: Additional information about the error
-                        example: Your request can no longer be verified. Please send a new request.
+                $ref: "#/components/schemas/ErrorExpiredRequest"
         "429":
-          description: An error occured. Check the response for more information
+          description: "Rate Limited"
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/Error'
-                  - type: object
-                    description: Requests Throttled
-                    properties:
-                      title:
-                        description: Generic error message
-                        example: Your request has been throttled. Please try again later.
-                      type:
-                        description: Link to error / remediation options
-                        example: 'https://developer.nexmo.com/api-errors/verify#throttled'
-                      detail:
-                        description: Additional information about the error
-                        example: Throughput Rate Exceeded - please wait [ 99 ] and retry
+                $ref: "#/components/schemas/ErrorThrottled"
 
     delete:
       operationId: CancelRequest
@@ -182,43 +117,23 @@ paths:
         "204":
           description: No content
         "404":
-          description: The request could not be found
+          description: "No such request"
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/Error'
-                  - type: object
-                    description: Request Not Found
-                    properties:
-                      title:
-                        description: Generic error message
-                        example: The request cannot be found
-                      type:
-                        description: Link to error / remediation options
-                        example: 'https://developer.nexmo.com/api-errors/verify#not-found'
-                      detail:
-                        description: Additional information about the error
-                        example: The request ID you request cannot be found.
+                $ref: "#/components/schemas/ErrorInvalidRequest"
+        "409":
+          description: "Expired request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorExpiredRequest"
         "429":
-            description: An error occured. Check the response for more information
-            content:
-              application/json:
-                schema:
-                  allOf:
-                    - $ref: '#/components/schemas/Error'
-                    - type: object
-                      description: Requests Throttled
-                      properties:
-                        title:
-                          description: Generic error message
-                          example: Your request has been throttled. Please try again later.
-                        type:
-                          description: Link to error / remediation options
-                          example: 'https://developer.nexmo.com/api-errors/verify#throttled'
-                        detail:
-                          description: Additional information about the error
-                          example: Throughput Rate Exceeded - please wait [ 99 ] and retry
+          description: "Rate Limited"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorThrottled"
 
 components:
   requestBodies:
@@ -619,6 +534,64 @@ components:
           title: 'Missing `workflow` parameter'
           detail: 'The `workflow` parameter is required and must be an array'
           instance: abcd
+
+    
+    ErrorInvalidRequest:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 404
+          description: The HTTP Status code of the error
+        error:
+          type: string
+          example: "Request Not Found"
+          description: A human readable description of the error XXX
+        message:
+          type: string
+          example: "Request with provided id: aaaaaaaa-bbbb-cccc-dddd-0123456789ab was not found"
+          description: A longer description of the error YYY
+
+    ErrorExpiredRequest:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 404
+          description: The HTTP Status code of the error
+        error:
+          type: string
+          example: "Request Expired"
+          description: A human readable description of the error XXX
+        message:
+          type: string
+          example: "Request with provided id: aaaaaaaa-bbbb-cccc-dddd-0123456789ab has expired"
+          description: A longer description of the error YYY
+    
+    ErrorThrottled:
+      type: object
+      required:
+        - type
+        - title
+        - detail
+        - instance
+      properties:
+        type:
+          type: string
+          description: Link to error / remediation options
+          example: https://developer.nexmo.com/api-errors/verify#rate-limit
+        title:
+          type: string
+          description: Generic error message
+          example: Rate Limit Hit
+        detail:
+          type: string
+          description: Additional information about the error
+          example: Please wait, then retry your request
+        instance:
+          type: string
+          description: Internal Trace ID
+          example: bf0ca0bf927b3b52e3cb03217e1a1ddf
 
   securitySchemes:
     basicAuth:
