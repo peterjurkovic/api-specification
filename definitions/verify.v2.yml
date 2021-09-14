@@ -289,7 +289,8 @@ components:
         brand:
           $ref: '#/components/schemas/Brand'
         locale:
-          $ref: 'common/common_data.yml#/components/schemas/Language'
+          $ref: '#/components/schemas/Language'
+
         channel_timeout:
           $ref: '#/components/schemas/ChannelTimeout'
         client_ref:
@@ -411,6 +412,26 @@ components:
       maximum: 900
       default: 300
       example: 300
+
+    Language:
+      type: string
+      description: Languages that are available to use
+      example: es-es
+      default: en-us
+      enum:
+        - en-us
+        - en-gb
+        - es-es
+        - es-mx
+        - es-us
+        - it-it
+        - fr-fr
+        - de-de
+        - ru-ru
+        - hi-in
+        - pt-br
+        - pt-pt
+        - id-id
 
     To:
       type: string
