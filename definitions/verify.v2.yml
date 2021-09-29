@@ -370,7 +370,7 @@ components:
       example: 4
       enum:
         - 4
-        - 6
+        - 10
 
     RequestId:
       type: string
