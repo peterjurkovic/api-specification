@@ -96,6 +96,19 @@ paths:
                         room_id:
                           type: string
                           format: uuid
+                        room_type:
+                          type: string
+                          enum:
+                            - instant
+                            - long_term
+                        expires_at:
+                          type: string
+                          format: date
+                          description: 'The time for when the room will be expired, expressed in ISO 8601 format'
+                        created_at:
+                          type: string
+                          format: date
+                          description: 'The time for when the room was created, expressed in ISO 8601 format'
               responses:
                 '204':
                   description: Your server returns this code if it accepts the callback
@@ -424,6 +437,11 @@ components:
           maxLength: 500
           type: string
           description: Free text that can be attached to a room. This will be passed in the form of a header in events related to this room.
+        type:
+          type: string
+          enum:
+            - instant
+            - long_term
         recording_options:
           $ref: '#/components/schemas/RecordingOptions'
         meeting_code:
@@ -437,6 +455,14 @@ components:
             - available
             - unavailable
           description: 'Once a room becomes unavailable, no new sessions can be created under it'
+        created_at:
+          type: string
+          format: date
+          description: 'The time for when the room was created, expressed in ISO 8601 format'
+        expires_at:
+          type: string
+          format: date
+          description: 'The time for when the room will be expired, expressed in ISO 8601 format'
         _links:
           type: object
           properties:
