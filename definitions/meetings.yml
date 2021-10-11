@@ -347,6 +347,30 @@ paths:
           description: OK
         '404':
           description: Room not found
+    patch:
+       summary: Update an existing room
+       operationId: updateRoom
+       requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                update_details:
+                  type: object
+                  properties:
+                    expires_at:
+                      type: string
+                      format: date
+                      description: The time for when the room will be expired, expressed in ISO 8601 format.
+       responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad request
+        '404':
+          description: Room not found
   '/recordings/:recording_id':
     get:
       summary: Get a recording
@@ -449,11 +473,8 @@ components:
           pattern: ^\d+$
           example: '123456789'
           minLength: 9
-        status:
-          type: string
-          enum:
-            - available
-            - unavailable
+        is_available:
+          type: boolean
           description: 'Once a room becomes unavailable, no new sessions can be created under it'
         created_at:
           type: string
@@ -488,6 +509,16 @@ components:
           maxLength: 500
           type: string
           description: Free text that can be attached to a room. This will be passed in the form of a header in events related to this room.
+        type:
+          type: string
+          enum:
+            - instant
+            - long_term
+          description: Represents the type of the room.
+        expires_at:
+          type: string
+          format: date
+          description: The time for when the room will be expired, expressed in ISO 8601 format. Required only for long-term room creation.
         recording_options:
           $ref: '#/components/schemas/RecordingOptions'
     RecordingOptions:
