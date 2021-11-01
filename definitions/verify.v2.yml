@@ -100,7 +100,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorInvalidRequest"
-        "409":
+        "410":
           description: "Expired request"
           content:
             application/json:
@@ -296,9 +296,7 @@ components:
               example: [
                   {
                     "channel": "whatsapp",
-                    "to": "447700900000",
-                    "from": "447700900000",
-                    "template": "abc:123:verify"
+                    "to": "447700900000"
                   }
                 ]
           required:
