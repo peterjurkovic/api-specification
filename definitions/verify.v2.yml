@@ -379,7 +379,7 @@ components:
     RequestId:
       type: string
       description: 'The ID of the request'
-      example: '0123456789abcdef0123456789abcdef'
+      example: 'c11236f4-00bf-4b89-84ba-88b25df97315'
 
     # Sender:
     #   type: string
