@@ -1,12 +1,12 @@
 openapi: "3.0.0"
 info:
-  version: 1.0.11
+  version: 1.0.13
   title: SMS API
-  description: With the SMS API you can send SMS from your account and lookup messages both messages that you've sent as well as messages sent to your virtual numbers. Numbers are specified in E.164 format. More SMS API documentation is at <https://developer.nexmo.com/messaging/sms/overview>
+  description: With the SMS API you can send SMS from your account and lookup messages both messages that you've sent as well as messages sent to your virtual numbers. Numbers are specified in E.164 format. More SMS API documentation is at <https://developer.vonage.com/messaging/sms/overview>
   contact:
     name: Vonage DevRel
     email: devrel@vonage.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
 servers:
   - url: https://rest.nexmo.com/sms
 paths:

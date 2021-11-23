@@ -1,13 +1,13 @@
 openapi: "3.0.0"
 info:
-  version: 1.0.2
+  version: 1.0.3
   title: Media API
   description: The Media API can be used to query, download and delete media items such as audio files for use with other Nexmo APIs.
   x-label: "BETA"
   contact:
     name: Nexmo DevRel
     email: devrel@nexmo.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
 servers:
   - url: https://api.nexmo.com/v3/media
 paths:

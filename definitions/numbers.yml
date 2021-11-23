@@ -1,14 +1,14 @@
 openapi: 3.0.0
 info:
   title: Numbers API
-  version: 1.0.20
+  version: 1.0.21
   description: >-
     The Numbers API enables you to manage your existing numbers and buy new virtual numbers for
-    use with the Vonage APIs. Further information is here: <https://developer.nexmo.com/numbers/overview>
+    use with the Vonage APIs. Further information is here: <https://developer.vonage.com/numbers/overview>
   contact:
     name: Vonage DevRel
     email: devrel@vonage.com
-    url: "https://developer.nexmo.com"
+    url: "https://developer.vonage.com"
   termsOfService: "https://www.nexmo.com/terms-of-use"
   license:
     name: The MIT License (MIT)
@@ -18,7 +18,7 @@ servers:
   - url: "https://rest.nexmo.com"
 externalDocs:
   description: Numbers product documentation on the Vonage Developer Portal
-  url: "https://developer.nexmo.com/numbers/overview"
+  url: "https://developer.vonage.com/numbers/overview"
 security:
   - apiKey: []
     apiSecret: []

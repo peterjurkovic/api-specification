@@ -3,7 +3,7 @@ servers:
   - url: "https://api.nexmo.com/verify"
 info:
   title: Verify API
-  version: 1.1.7
+  version: 1.1.8
   description: >-
     The Verify API helps you to implement 2FA (two-factor authentication) in your applications.
     This is useful for:
@@ -15,18 +15,18 @@ info:
 
     * Ensuring that you can reach your users at any time because you have their correct phone number
 
-    More information is available at <https://developer.nexmo.com/verify>
+    More information is available at <https://developer.vonage.com/verify>
   contact:
     name: Vonage DevRel
     email: devrel@vonage.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
   termsOfService: "https://www.nexmo.com/terms-of-use"
   license:
     name: The MIT License (MIT)
     url: "https://opensource.org/licenses/MIT"
 externalDocs:
   description: "More information on the Verify product on our Developer Portal"
-  url: "https://developer.nexmo.com/verify"
+  url: "https://developer.vonage.com/verify"
 paths:
   "/{format}":
     post:
@@ -599,7 +599,7 @@ components:
           example: Acme Inc
         sender_id:
           description: >-
-            An 11-character alphanumeric string that represents the [identity of the sender](https://developer.nexmo.com/messaging/sms/guides/custom-sender-id)
+            An 11-character alphanumeric string that represents the [identity of the sender](https://developer.vonage.com/messaging/sms/guides/custom-sender-id)
             of the verification request. Depending on the destination of the phone number you are sending the verification SMS to,
             restrictions might apply.
           type: string
@@ -620,7 +620,7 @@ components:
             the locale that matches the `number`. For example, the text message
             or TTS message for a `33*` number is sent in French. Use this
             parameter to explicitly control the language used for the Verify
-            request. A list of languages is available: <https://developer.nexmo.com/verify/guides/verify-languages>
+            request. A list of languages is available: <https://developer.vonage.com/verify/guides/verify-languages>
           example: en-us
           type: string
           default: en-us
@@ -671,7 +671,7 @@ components:
             `pin_expiry` must be an integer multiple of `next_event_wait`
             otherwise `pin_expiry` is defaulted to equal next_event_wait. See
             [changing the event
-            timings](https://developer.nexmo.com/verify/guides/changing-default-timings).
+            timings](https://developer.vonage.com/verify/guides/changing-default-timings).
           type: integer
           minimum: 60
           maximum: 3600
@@ -692,7 +692,7 @@ components:
             actions to use in order to convey the PIN to your user. For example,
             an id of 1 identifies the workflow SMS - TTS - TTS. For a list of
             all workflows and their associated ids, please visit the [developer
-            portal](https://developer.nexmo.com/verify/guides/workflows-and-events).
+            portal](https://developer.vonage.com/verify/guides/workflows-and-events).
           type: integer
           default: 1
           enum:
@@ -1216,7 +1216,7 @@ components:
             `pin_expiry` must be an integer multiple of `next_event_wait`
             otherwise `pin_expiry` is defaulted to equal next_event_wait. See
             [changing the event
-            timings](https://developer.nexmo.com/verify/guides/changing-default-timings).
+            timings](https://developer.vonage.com/verify/guides/changing-default-timings).
           type: integer
           minimum: 60
           maximum: 3600
@@ -1237,7 +1237,7 @@ components:
             actions to use in order to convey the PIN to your user. For example,
             an id of 1 identifies the workflow SMS - TTS - TTS. For a list of
             all workflows and their associated ids, please visit the [developer
-            portal](https://developer.nexmo.com/verify/guides/workflows-and-events).
+            portal](https://developer.vonage.com/verify/guides/workflows-and-events).
           type: integer
           default: 1
           enum:

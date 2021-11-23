@@ -1,13 +1,13 @@
 openapi: "3.0.0"
 info:
-  version: 0.1.5
+  version: 0.1.6
   title: External Accounts API
-  description: "The External Accounts API is used to manage accounts for Viber Service Messages, Facebook Messenger and Whatsapp for use in the [Messages](https://developer.nexmo.com/messages/overview) and [Dispatch](https://developer.nexmo.com/dispatch/overview) APIs."
+  description: "The External Accounts API is used to manage accounts for Viber Service Messages, Facebook Messenger and Whatsapp for use in the [Messages](https://developer.vonage.com/messages/overview) and [Dispatch](https://developer.vonage.com/dispatch/overview) APIs."
   x-label: Developer Preview
   contact:
     name: Vonage DevRel
     email: devrel@vonage.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
 servers:
   - url: https://api.nexmo.com/beta/chatapp-accounts
 
@@ -60,7 +60,7 @@ paths:
                     <li>There is just one application allowed per an account.</li>
                     <li>The application type must be type "messages".</li>
                     </ul>
-                    For more information see [Application API spec](https://developer.nexmo.com/api/application.v2)
+                    For more information see [Application API spec](https://developer.vonage.com/api/application.v2)
       responses:
         "201":
           description: Created.
@@ -486,7 +486,7 @@ paths:
                 application:
                   type: string
                   example: "applicationId"
-                  description: There is just one application allowed per an account. The application type must be type "messages". For more information please see [Application API Spec](https://developer.nexmo.com/api/application.v2)
+                  description: There is just one application allowed per an account. The application type must be type "messages". For more information please see [Application API Spec](https://developer.vonage.com/api/application.v2)
       responses:
         "200":
           description: OK.
@@ -780,8 +780,8 @@ tags:
   - name: "Account"
     description: An external-account used as the `from` field in the Messages API and Dispatch API
   - name: "Facebook Messenger"
-    description: "Managing your [Facebook Messenger](https://developer.nexmo.com/messages/concepts/facebook) account"
+    description: "Managing your [Facebook Messenger](https://developer.vonage.com/messages/concepts/facebook) account"
   - name: "Viber Service Message"
-    description: "Managing your [Viber Service Message](https://developer.nexmo.com/messages/concepts/viber) account"
+    description: "Managing your [Viber Service Message](https://developer.vonage.com/messages/concepts/viber) account"
   - name: "Whatsapp"
-    description: "Managing your [Whatsapp](https://developer.nexmo.com/messages/concepts/whatsapp) account"
+    description: "Managing your [Whatsapp](https://developer.vonage.com/messages/concepts/whatsapp) account"

@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: Nexmo Conversion API
-  version: 1.0.1
+  title: Conversion API
+  version: 1.0.2
   description: >-
     The Conversion API allows you to tell Nexmo about the reliability of your
     2FA communications. Sending conversion data back to us means that Nexmo can
@@ -19,7 +19,7 @@ info:
   contact:
     name: Nexmo.com
     email: devrel@nexmo.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
     x-twitter: Nexmo
   termsOfService: "https://www.nexmo.com/terms-of-use"
   license:
@@ -31,7 +31,7 @@ info:
 servers:
   - url: "https://api.nexmo.com/conversions"
 externalDocs:
-  url: "https://developer.nexmo.com/api/conversion"
+  url: "https://developer.vonage.com/api/conversion"
   x-sha1: 8ad8bc6b0c51af4ca458c13cfced6124783ab113
 security:
   - apiKey: []

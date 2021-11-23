@@ -1,17 +1,17 @@
 openapi: "3.0.0"
 
 info:
-  version: 1.0.4
+  version: 1.0.5
   title: Audit API
   description: >
-    The Vonage Audit API allows you to view details of changes to your account. More information is available at <https://developer.nexmo.com/audit/overview>.
+    The Vonage Audit API allows you to view details of changes to your account. More information is available at <https://developer.vonage.com/audit/overview>.
 
     _Please note that the Audit API is currently in Beta_
   x-label: Beta
   contact:
     name: Vonage DevRel
     email: devrel@vonage.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
   termsOfService: "https://www.nexmo.com/terms-of-use"
   license:
     name: The MIT License (MIT)

@@ -4,19 +4,19 @@ servers:
   - url: "https://api.nexmo.com/ni"
 info:
   title: Number Insight API
-  version: 1.1.2
+  version: 1.1.3
   description: >-
-    The Number Insight API delivers real-time intelligence about the validity, reachability and roaming status of a phone number and tells you how to format the number correctly in your application. There are three levels of Number Insight API available: [Basic, Standard and Advanced](https://developer.nexmo.com/number-insight/overview#basic-standard-and-advanced-apis). The advanced API is available asynchronously as well as synchronously.
+    The Number Insight API delivers real-time intelligence about the validity, reachability and roaming status of a phone number and tells you how to format the number correctly in your application. There are three levels of Number Insight API available: [Basic, Standard and Advanced](https://developer.vonage.com/number-insight/overview#basic-standard-and-advanced-apis). The advanced API is available asynchronously as well as synchronously.
   contact:
     name: Vonage DevRel
     email: devrel@vonage.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
   termsOfService: "https://www.nexmo.com/terms-of-use"
   license:
     name: "The MIT License (MIT)"
     url: "https://opensource.org/licenses/MIT"
 externalDocs:
-  url: https://developer.nexmo.com/api/number-insight
+  url: https://developer.vonage.com/api/number-insight
   x-sha1: 081f6d985e2e4a75586da1654fde880a96885405
 security:
   - apiKey: []

@@ -1,16 +1,16 @@
 ---
 openapi: 3.0.0
 info:
-  version: 1.3.7
+  version: 1.3.8
   title: Voice API
   description:
     The Voice API lets you create outbound calls, control in-progress calls
     and get information about historical calls. More information about the Voice API
-    can be found at <https://developer.nexmo.com/voice/voice-api/overview>.
+    can be found at <https://developer.vonage.com/voice/voice-api/overview>.
   contact:
     name: Vonage DevRel
     email: devrel@vonage.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
 servers:
   - url: https://api.nexmo.com/v1/calls
 paths:
@@ -420,7 +420,7 @@ components:
                   text: Hello World
               items:
                 type: object
-              description: Refer to the [NCCO Guide](https://developer.nexmo.com/voice/voice-api/ncco-reference) for a description of possible NCCO parameters.
+              description: Refer to the [NCCO Guide](https://developer.vonage.com/voice/voice-api/ncco-reference) for a description of possible NCCO parameters.
               x-nexmo-developer-collection-description-shown: true
 
     UpdateCallRequestHangup:
@@ -803,7 +803,7 @@ components:
       type: string
       title: The State of the call
       example: started
-      description: The status of the call. [See possible values](https://developer.nexmo.com/voice/voice-api/guides/call-flow#event-objects)
+      description: The status of the call. [See possible values](https://developer.vonage.com/voice/voice-api/guides/call-flow#event-objects)
 
     EndpointApp:
       type: object
@@ -834,7 +834,7 @@ components:
         number:
           "$ref": "#/components/schemas/AddressE164"
         dtmfAnswer:
-          description: Provide [DTMF digits](https://developer.nexmo.com/voice/voice-api/guides/dtmf) to send when the call is answered
+          description: Provide [DTMF digits](https://developer.vonage.com/voice/voice-api/guides/dtmf) to send when the call is answered
           type: string
           example: p*123#
     EndpointPhoneFrom:

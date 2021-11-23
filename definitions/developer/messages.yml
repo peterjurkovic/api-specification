@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Message Search API
-  version: 1.0.6
+  version: 1.0.7
   description: >-
 
     <div class="Vlt-callout Vlt-callout--critical">
@@ -17,7 +17,7 @@ info:
   contact:
     name: Vonage.com
     email: devrel@vonage.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
     x-twitter: Vonage
   termsOfService: "https://www.nexmo.com/terms-of-use"
   license:

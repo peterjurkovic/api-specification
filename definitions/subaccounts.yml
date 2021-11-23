@@ -9,7 +9,7 @@ info:
   contact:
     name: Vonage DevRel
     email: devrel@vonage.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
 paths:
   /{api_key}/subaccounts:
     get:
@@ -409,7 +409,7 @@ components:
             properties:
               type:
                 type: string
-                example: "https://developer.nexmo.com/api-errors#unauthorized"
+                example: "https://developer.vonage.com/api-errors#unauthorized"
               title:
                 type: string
                 example: "Invalid credentials supplied"
@@ -440,7 +440,7 @@ components:
             properties:
               type:
                 type: string
-                example: "https://developer.nexmo.com/api-errors#invalid-api-key"
+                example: "https://developer.vonage.com/api-errors#invalid-api-key"
               title:
                 type: string
                 example: "Invalid API Key"
@@ -464,7 +464,7 @@ components:
             properties:
               type:
                 type: string
-                example: "https://developer.nexmo.com/api-errors/subaccounts#transfer-conflict"
+                example: "https://developer.vonage.com/api-errors/subaccounts#transfer-conflict"
               title:
                 type: string
                 example: "Transfer Conflict"
@@ -489,7 +489,7 @@ components:
             properties:
               type:
                 type: string
-                example: "https://developer.nexmo.com/api-errors/subaccounts#validation"
+                example: "https://developer.vonage.com/api-errors/subaccounts#validation"
               title:
                 type: string
                 example: "Bad Request"
@@ -524,7 +524,7 @@ components:
             properties:
               type:
                 type: string
-                example: "https://developer.nexmo.com/api-errors#internal-error"
+                example: "https://developer.vonage.com/api-errors#internal-error"
               title:
                 type: string
                 example: "Internal Error"
@@ -546,7 +546,7 @@ components:
       properties:
         type:
           type: string
-          example: "https://developer.nexmo.com/api-errors#unprovisioned"
+          example: "https://developer.vonage.com/api-errors#unprovisioned"
         title:
           type: string
           example: "Authorisation error"
@@ -567,7 +567,7 @@ components:
       properties:
         type:
           type: string
-          example: "https://developer.nexmo.com/api-errors/subaccounts#missing-number-transfer"
+          example: "https://developer.vonage.com/api-errors/subaccounts#missing-number-transfer"
         title:
           type: string
           example: "Invalid Number Transfer"
@@ -588,7 +588,7 @@ components:
       properties:
         type:
           type: string
-          example: "https://developer.nexmo.com/api-errors/subaccounts#invalid-number-transfer"
+          example: "https://developer.vonage.com/api-errors/subaccounts#invalid-number-transfer"
         title:
           type: string
           example: "Invalid Number Transfer"

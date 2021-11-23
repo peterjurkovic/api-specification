@@ -1,11 +1,11 @@
 openapi: 3.0.3
 
 info:
-  version: 1.0.0
+  version: 1.0.1
   title: 10DLC Brand and Campaign Provisioning
   contact:
     name: Vonage
-    url: https://developer.nexmo.com
+    url: https://developer.vonage.com
     email: devrel@vonage.com
   description: APIs relating to 10DLC brand and campaign management
 
@@ -657,7 +657,7 @@ components:
                     example: There were some issues with your submission
                   type:
                     description: Link to error / remediation options
-                    example: "https://developer.nexmo.com/api-errors/10dlc#error-type"
+                    example: "https://developer.vonage.com/api-errors/10dlc#error-type"
                   detail:
                     description: Additional information about the error
                     example: There were some errors submitting your brand, and a more detailed message would appear here
@@ -677,7 +677,7 @@ components:
                     example: An error occurred with this brand while communicating with a third party
                   type:
                     description: Link to error / remediation options
-                    example: "https://developer.nexmo.com/api-errors/10dlc#error-brand-conflict"
+                    example: "https://developer.vonage.com/api-errors/10dlc#error-brand-conflict"
                   detail:
                     description: Additional information about the error
                     example: An unknown error occurred while processing this brand with the carrier system. Please contact support or try again later.
@@ -697,7 +697,7 @@ components:
                     example: This brand has not been qualified for the given use case
                   type:
                     description: Link to error / remediation options
-                    example: "https://developer.nexmo.com/api-errors/10dlc#error-brand-not-qualified"
+                    example: "https://developer.vonage.com/api-errors/10dlc#error-brand-not-qualified"
                   detail:
                     description: Additional information about the error
                     example: A campaign use case must be checked before a campaign can be created. Please verify the brand use case before submitting this campaign.
@@ -717,7 +717,7 @@ components:
                     example: There were some issues with the submitted data
                   type:
                     description: Link to error / remediation options
-                    example: "https://developer.nexmo.com/api-errors/10dlc#invalid-brand-data"
+                    example: "https://developer.vonage.com/api-errors/10dlc#invalid-brand-data"
                   detail:
                     description: Additional information about the error
                     example: There were some errors submitting your brand, please correct the requested fields
@@ -755,7 +755,7 @@ components:
                     example: There were some issues with the submitted data
                   type:
                     description: Link to error / remediation options
-                    example: "https://developer.nexmo.com/api-errors/10dlc#invalid-campaign-data"
+                    example: "https://developer.vonage.com/api-errors/10dlc#invalid-campaign-data"
                   detail:
                     description: Additional information about the error
                     example: There were some errors submitting your campaign, please correct the requested fields
@@ -793,7 +793,7 @@ components:
                     example: Number Already Linked
                   type:
                     description: Link to error / remediation options
-                    example: "https://developer.nexmo.com/api-errors/10dlc#number-already-linked"
+                    example: "https://developer.vonage.com/api-errors/10dlc#number-already-linked"
                   detail:
                     description: Additional information about the error
                     example: The number requested has already been linked to another campaign
@@ -813,7 +813,7 @@ components:
                     example: There were some issues with the submitted data
                   type:
                     description: Link to error / remediation options
-                    example: "https://developer.nexmo.com/api-errors/10dlc#invalid-number-data"
+                    example: "https://developer.vonage.com/api-errors/10dlc#invalid-number-data"
                   detail:
                     description: Additional information about the error
                     example: There were some errors submitting your campaign, please correct the requested fields
@@ -847,7 +847,7 @@ components:
                     example: There were some issues with the submitted data
                   type:
                     description: Link to error / remediation options
-                    example: "https://developer.nexmo.com/api-errors/10dlc#invalid-usecase-data"
+                    example: "https://developer.vonage.com/api-errors/10dlc#invalid-usecase-data"
                   detail:
                     description: Additional information about the error
                     example: There were some errors qualifying the use case for your brand, please correct the requested fields
@@ -885,7 +885,7 @@ components:
                     example: Unable to parse incoming request
                   type:
                     description: Link to error / remediation options
-                    example: "https://developer.nexmo.com/api-errors/10dlc#invalid-json"
+                    example: "https://developer.vonage.com/api-errors/10dlc#invalid-json"
                   detail:
                     description: Additional information about the error
                     example: invalid character 'f' after object key:value pair
@@ -905,7 +905,7 @@ components:
                     example: The requested use case is denied for this brand
                   type:
                     description: Link to error / remediation options
-                    example: "https://developer.nexmo.com/api-errors/10dlc#use-case-denied"
+                    example: "https://developer.vonage.com/api-errors/10dlc#use-case-denied"
                   detail:
                     description: Additional information about the error
                     example: The requested use case has been denied for this brand. Your brand may require additional third party vetting.
@@ -925,7 +925,7 @@ components:
                     example: An error occurred while requesting third party vetting
                   type:
                     description: Link to error / remediation options
-                    example: "https://developer.nexmo.com/api-errors/10dlc#error-vetting-conflict"
+                    example: "https://developer.vonage.com/api-errors/10dlc#error-vetting-conflict"
                   detail:
                     description: Additional information about the error
                     example: An unknown error occurred while requesting vetting with the carrier system. Please contact support or try again later.
@@ -945,7 +945,7 @@ components:
                     example: There were some issues with the submitted data
                   type:
                     description: Link to error / remediation options
-                    example: "https://developer.nexmo.com/api-errors/10dlc#invalid-vetting-data"
+                    example: "https://developer.vonage.com/api-errors/10dlc#invalid-vetting-data"
                   detail:
                     description: Additional information about the error
                     example: There were some errors submitting your vetting request, please correct the requested fields
@@ -2219,7 +2219,7 @@ components:
               example: There were errors removing numbers from the pool
             type:
               description: Link to error / remediation options
-              example: "https://developer.nexmo.com/api-errors/10dlc#number-deletion-failure"
+              example: "https://developer.vonage.com/api-errors/10dlc#number-deletion-failure"
             detail:
               description: Additional information about the error
               example: We were unable to remove any of the numbers from the campaign.
@@ -2233,7 +2233,7 @@ components:
                     example: Number not found
                   type:
                     description: Link to error / remediation options
-                    example: "https://developer.nexmo.com/api-errors/10dlc#missing-number"
+                    example: "https://developer.vonage.com/api-errors/10dlc#missing-number"
                   detail:
                     description: Additional information about the error
                     example: One or more numbers being deleted are not available in the campaign

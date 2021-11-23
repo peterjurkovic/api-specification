@@ -1,13 +1,13 @@
 ---
 openapi: "3.0.0"
 info:
-  version: 1.0.6
+  version: 1.0.7
   title: "Redact API"
   description: The [Redact API](/redact/overview) helps organisations meet their privacy compliance obligations. It provides controlled, on-demand redaction of private information from transactional records in the long-term storage. Note, Redact API does not have the capability to redact the short-lived server logs that are retained for a few weeks. For SMS customers that need immediate redaction, Vonage suggests using [Advanced Auto-redact](/redact/overview#auto-redact-vs-redact-api).
   contact:
     name: Vonage DevRel
     email: devrel@vonage.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
 servers:
   - url: https://api.nexmo.com/v1/redact
 paths:
@@ -80,7 +80,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/redact#invalid-product
+          example: https://developer.vonage.com/api-errors/redact#invalid-product
         title:
           type: string
           description: Generic error message
@@ -106,7 +106,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/redact#premature-redaction
+          example: https://developer.vonage.com/api-errors/redact#premature-redaction
         title:
           type: string
           description: Generic error message
@@ -132,7 +132,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors#unprovisioned
+          example: https://developer.vonage.com/api-errors#unprovisioned
         title:
           type: string
           description: Generic error message
@@ -173,7 +173,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors#invalid-json
+          example: https://developer.vonage.com/api-errors#invalid-json
         title:
           type: string
           description: Generic error message
@@ -198,7 +198,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors#invalid-id
+          example: https://developer.vonage.com/api-errors#invalid-id
         title:
           type: string
           description: Generic error message
@@ -223,7 +223,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/redact#rate-limit
+          example: https://developer.vonage.com/api-errors/redact#rate-limit
         title:
           type: string
           description: Generic error message

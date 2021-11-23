@@ -2,7 +2,7 @@ openapi: 3.0.0
 servers:
   - url: "https://rest.nexmo.com/account"
 info:
-  version: "0.0.3"
+  version: 0.0.4
   title: Pricing API
   description: >-
     The API to retrieve pricing information.
@@ -12,7 +12,7 @@ info:
   contact:
     name: Nexmo DevRel
     email: devrel@nexmo.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
 paths:
   /get-pricing/outbound/{type}:
     get:

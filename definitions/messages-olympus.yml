@@ -1,12 +1,12 @@
 openapi: "3.0.0"
 info:
-  version: 1.0.5
+  version: 1.0.6
   title: Messages API
   description: 'The Messages API consolidates and normalises exchanges across all messaging channels. It allows you to use a single API to interact with our various channels such as SMS, MMS, WhatsApp, Viber and Facebook Messenger'
   contact:
     name: Nexmo DevRel
     email: devrel@nexmo.com
-    url: 'https://developer.nexmo.com/'
+    url: 'https://developer.vonage.com/'
 servers:
   - url: https://api.nexmo.com/v1/messages
 paths:
@@ -34,7 +34,7 @@ paths:
                       - properties:
                           text:
                             description: |
-                                The text of message to send; limited to 1000 characters. The Messages API automatically detects unicode characters when sending SMS and sends the message as a unicode SMS. For more information on how concatenation and encoding please visit: [developer.nexmo.com/messaging/sms/guides/concatenation-and-encoding](https://developer.nexmo.com/messaging/sms/guides/concatenation-and-encoding).
+                                The text of message to send; limited to 1000 characters. The Messages API automatically detects unicode characters when sending SMS and sends the message as a unicode SMS. For more information on how concatenation and encoding please visit: [developer.vonage.com/messaging/sms/guides/concatenation-and-encoding](https://developer.vonage.com/messaging/sms/guides/concatenation-and-encoding).
                       - $ref: '#/components/schemas/channelOptionsSms'
                 - title: MMS
                   x-tab-id: MMS
@@ -725,7 +725,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/messages-olympus#1100
+          example: https://developer.vonage.com/api-errors/messages-olympus#1100
         title:
           type: string
           description: Generic error message
@@ -751,7 +751,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/messages-olympus#1110
+          example: https://developer.vonage.com/api-errors/messages-olympus#1110
         title:
           type: string
           description: Generic error message
@@ -790,7 +790,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/messages-olympus#1120
+          example: https://developer.vonage.com/api-errors/messages-olympus#1120
         title:
           type: string
           description: Generic error message
@@ -816,7 +816,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/messages-olympus#110
+          example: https://developer.vonage.com/api-errors/messages-olympus#110
         title:
           type: string
           description: Generic error message
@@ -842,7 +842,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/messages-olympus#1140
+          example: https://developer.vonage.com/api-errors/messages-olympus#1140
         title:
           type: string
           description: Generic error message
@@ -868,7 +868,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/messages-olympus#1150
+          example: https://developer.vonage.com/api-errors/messages-olympus#1150
         title:
           type: string
           description: Generic error message
@@ -907,7 +907,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/messages-olympus#1060
+          example: https://developer.vonage.com/api-errors/messages-olympus#1060
         title:
           type: string
           description: Generic error message
@@ -932,7 +932,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/#low-balance
+          example: https://developer.vonage.com/api-errors/#low-balance
         title:
           type: string
           description: Generic error message
@@ -957,7 +957,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/messages-olympus#1010
+          example: https://developer.vonage.com/api-errors/messages-olympus#1010
         title:
           type: string
           description: Generic error message
@@ -982,7 +982,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/messages-olympus#1000
+          example: https://developer.vonage.com/api-errors/messages-olympus#1000
         title:
           type: string
           description: Generic error message
@@ -1008,7 +1008,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors#invalid-json
+          example: https://developer.vonage.com/api-errors#invalid-json
         title:
           type: string
           description: Generic error message
@@ -1034,7 +1034,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/#unprovisioned
+          example: https://developer.vonage.com/api-errors/#unprovisioned
         title:
           type: string
           description: Generic error message
@@ -1060,7 +1060,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/#unathorized
+          example: https://developer.vonage.com/api-errors/#unathorized
         title:
           type: string
           description: Generic error message
@@ -1091,7 +1091,7 @@ components:
       type: string
       example: '447700900001'
       description: |
-           The phone number of the message **sender** in the [E.164](https://en.wikipedia.org/wiki/E.164) format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see [Global Messaging](https://developer.nexmo.com/messaging/sms/guides/country-specific-features#country-specific-features) for more details
+           The phone number of the message **sender** in the [E.164](https://en.wikipedia.org/wiki/E.164) format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000. For SMS in certain localities alpha-numeric sender id's will work as well, see [Global Messaging](https://developer.vonage.com/messaging/sms/guides/country-specific-features#country-specific-features) for more details
 
     ToId:
       type: string
@@ -1249,15 +1249,15 @@ components:
               type: string
               format: url
               description: The type of error encountered, follow URL for more details
-              example: https://developer.nexmo.com/api-errors/messages-olympus#1000
+              example: https://developer.vonage.com/api-errors/messages-olympus#1000
             title:
               type: string
               example: 1000
-              description: The error code encountered when sending the message. See [our errors list](https://developer.nexmo.com/api-errors/messages-olympus) for a list of possible errors
+              description: The error code encountered when sending the message. See [our errors list](https://developer.vonage.com/api-errors/messages-olympus) for a list of possible errors
             detail:
               type: string
               example: 'Throttled - You have exceeded the submission capacity allowed on this account. Please wait and retry'
-              description: Text describing the error. See [our errors list](https://developer.nexmo.com/api-errors/messages-olympus) for a list of possible errors
+              description: Text describing the error. See [our errors list](https://developer.vonage.com/api-errors/messages-olympus) for a list of possible errors
             instance:
               type: string
               example: 'bf0ca0bf927b3b52e3cb03217e1a1ddf'

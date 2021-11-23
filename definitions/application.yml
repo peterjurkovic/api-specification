@@ -16,7 +16,7 @@ info:
   contact:
     name: Nexmo.com
     email: devrel@nexmo.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
     x-twitter: Nexmo
   termsOfService: "https://www.nexmo.com/terms-of-use"
   license:
@@ -28,7 +28,7 @@ info:
 servers:
   - url: "https://api.nexmo.com/v1/applications"
 externalDocs:
-  url: "https://developer.nexmo.com/api/developer/application"
+  url: "https://developer.vonage.com/api/developer/application"
   x-sha1: d8836c374e2a7504bd2cd59e05fcee440f67cb44
 paths:
   /:

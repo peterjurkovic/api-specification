@@ -1,7 +1,7 @@
 ---
 openapi: "3.0.0"
 info:
-  version: 2.1.1
+  version: 2.1.2
   title: "Application API"
   description: |
     Vonage provides an Application API to allow management of your Vonage Applications.
@@ -9,7 +9,7 @@ info:
     This API is backwards compatible with version 1. Applications created using version 1 of the API can also be managed using version 2 (this version) of the API.
   contact:
     name: Vonage
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
     email: devrel@nexmo.com
 servers:
   - url: https://api.nexmo.com/v2/applications
@@ -47,7 +47,7 @@ paths:
                 properties:
                   type:
                     type: string
-                    example: "https://developer.nexmo.com/api-errors/application#list-validation"
+                    example: "https://developer.vonage.com/api-errors/application#list-validation"
                   title:
                     type: string
                     example: Bad Request
@@ -632,7 +632,7 @@ components:
             properties:
               type:
                 type: string
-                example: "https://developer.nexmo.com/api-errors/application#payload-validation"
+                example: "https://developer.vonage.com/api-errors/application#payload-validation"
               title:
                 type: string
                 example: Bad Request

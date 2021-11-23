@@ -13,7 +13,7 @@ info:
   contact:
     name: Vonage DevRel
     email: devrel@vonage.com
-    url: 'https://developer.nexmo.com/'
+    url: 'https://developer.vonage.com/'
   x-label: Beta
   termsOfService: 'https://www.nexmo.com/terms-of-use'
   license:
@@ -213,7 +213,7 @@ paths:
                     properties:
                       type:
                         type: string
-                        example: 'https://developer.nexmo.com/api-errors/reports#invalid-filter'
+                        example: 'https://developer.vonage.com/api-errors/reports#invalid-filter'
                       title:
                         type: string
                         example: 'Invalid filter'
@@ -724,7 +724,7 @@ components:
             properties:
               type:
                 type: string
-                example: 'https://developer.nexmo.com/api-errors#invalid-json'
+                example: 'https://developer.vonage.com/api-errors#invalid-json'
               title:
                 type: string
                 example: 'Malformed JSON'
@@ -742,7 +742,7 @@ components:
             properties:
               type:
                 type: string
-                example: 'https://developer.nexmo.com/api-errors/reports#invalid-request-parameters'
+                example: 'https://developer.vonage.com/api-errors/reports#invalid-request-parameters'
               title:
                 type: string
                 example: 'Invalid request parameter'
@@ -760,7 +760,7 @@ components:
             properties:
               type:
                 type: string
-                example: 'https://developer.nexmo.com/api-errors#unauthorized'
+                example: 'https://developer.vonage.com/api-errors#unauthorized'
               title:
                 type: string
                 example: 'Unauthorized'
@@ -778,7 +778,7 @@ components:
             properties:
               type:
                 type: string
-                example: 'https://developer.nexmo.com/api-errors#forbidden'
+                example: 'https://developer.vonage.com/api-errors#forbidden'
               title:
                 type: string
                 example: 'Forbidden'
@@ -796,7 +796,7 @@ components:
             properties:
               type:
                 type: string
-                example: 'https://developer.nexmo.com/api-errors#not-found'
+                example: 'https://developer.vonage.com/api-errors#not-found'
               title:
                 type: string
                 example: 'Invalid report ID'
@@ -814,7 +814,7 @@ components:
             properties:
               type:
                 type: string
-                example: 'https://developer.nexmo.com/api-errors/reports#invalid-abort-operation'
+                example: 'https://developer.vonage.com/api-errors/reports#invalid-abort-operation'
               title:
                 type: string
                 example: 'Invalid Abort Operation'
@@ -832,7 +832,7 @@ components:
             properties:
               type:
                 type: string
-                example: 'https://developer.nexmo.com/api-errors#not-found'
+                example: 'https://developer.vonage.com/api-errors#not-found'
               title:
                 type: string
                 example: 'Unprocessable entity'

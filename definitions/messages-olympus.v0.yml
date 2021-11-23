@@ -1,12 +1,12 @@
 openapi: "3.0.0"
 info:
-  version: 0.5.0
+  version: 0.5.1
   title: Messages API
   description: "The Messages API enables you to send messages to customers via their preferred channels (currently Facebook Messenger, WhatsApp, Viber, and SMS/MMS) using a single API. The Messages API is currently in Beta."
   contact:
     name: Vonage DevRel
     email: devrel@vonage.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
   x-label: Beta
 servers:
   - url: https://api.nexmo.com/v0.1/messages
@@ -1398,7 +1398,7 @@ components:
                   example: Hello From Vonage!
                   type: string
                   description: |
-                    Limited to 1000 characters. The Messages API automatically detects unicode characters when sending SMS and sends the message as a unicode SMS. For more information on how concatenation and encoding please visit: developer.nexmo.com/messaging/sms/guides/concatenation-and-encoding.
+                    Limited to 1000 characters. The Messages API automatically detects unicode characters when sending SMS and sends the message as a unicode SMS. For more information on how concatenation and encoding please visit: developer.vonage.com/messaging/sms/guides/concatenation-and-encoding.
     Sms:
       allOf:
         - type: object

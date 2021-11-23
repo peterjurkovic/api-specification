@@ -1,13 +1,13 @@
 openapi: "3.0.3"
 info:
-  version: 0.1.4
+  version: 0.1.5
   title: WhatsApp Provisioning  API
   description: | 
     The WhatsApp Manager API enables customers to deploy a WhatsApp cluster, perform One Time Password (OTP) verification, and update profile information 
   contact:
     name: Nexmo DevRel
     email: devrel@nexmo.com
-    url: 'https://developer.nexmo.com/'
+    url: 'https://developer.vonage.com/'
   x-label: Beta
 servers:
   - url: https://api.nexmo.com/v0.1/whatsapp-manager
@@ -428,7 +428,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/whatsapp-provisioning#throttled
+          example: https://developer.vonage.com/api-errors/whatsapp-provisioning#throttled
         title:
           type: string
           description: Generic error message
@@ -452,7 +452,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/whatsapp-provisioning#conflict-resend-otp
+          example: https://developer.vonage.com/api-errors/whatsapp-provisioning#conflict-resend-otp
         title:
           type: string
           description: Generic error message
@@ -476,7 +476,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/whatsapp-provisioning#verification-failed
+          example: https://developer.vonage.com/api-errors/whatsapp-provisioning#verification-failed
         title:
           type: string
           description: Generic error message
@@ -514,7 +514,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/whatsapp-provisioning#unprocessable
+          example: https://developer.vonage.com/api-errors/whatsapp-provisioning#unprocessable
         title:
           type: string
           description: Generic error message
@@ -551,7 +551,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/whatsapp-provisioning#unprocessable-profile-update
+          example: https://developer.vonage.com/api-errors/whatsapp-provisioning#unprocessable-profile-update
         title:
           type: string
           description: Generic error message
@@ -588,7 +588,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/whatsapp-provisioning#conflict-deployment-state
+          example: https://developer.vonage.com/api-errors/whatsapp-provisioning#conflict-deployment-state
         title:
           type: string
           description: Generic error message
@@ -612,7 +612,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors#not-found
+          example: https://developer.vonage.com/api-errors#not-found
         title:
           type: string
           description: Generic error message
@@ -636,7 +636,7 @@ components:
         type:
           type: string
           description: Machine readable error type
-          example: https://developer.nexmo.com/api-errors#unauthorized
+          example: https://developer.vonage.com/api-errors#unauthorized
         title:
           type: string
           description: Error title
@@ -661,7 +661,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/whatsapp-provisioning#number-in-use
+          example: https://developer.vonage.com/api-errors/whatsapp-provisioning#number-in-use
         title:
           type: string
           description: Generic error message
@@ -686,7 +686,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors#forbidden
+          example: https://developer.vonage.com/api-errors#forbidden
         title:
           type: string
           description: Generic error message
@@ -711,7 +711,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/whatsapp-provisioning#invalid-json
+          example: https://developer.vonage.com/api-errors/whatsapp-provisioning#invalid-json
         title:
           type: string
           description: Generic error message

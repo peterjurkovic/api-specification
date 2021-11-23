@@ -1,12 +1,12 @@
 openapi: "3.0.2"
 info:
   title: "Account API"
-  version: "1.0.3"
+  version: "1.0.4"
   description: >-
-    Enables users to manage their Vonage API Account by programmable means. More information is available here: <https://developer.nexmo.com/account/overview>.
+    Enables users to manage their Vonage API Account by programmable means. More information is available here: <https://developer.vonage.com/account/overview>.
   contact:
     name: Vonage.com
-    url: "https://developer.nexmo.com"
+    url: "https://developer.vonage.com"
 servers:
   - url: "https://api.nexmo.com"
 paths:
@@ -255,7 +255,7 @@ paths:
                   type:
                     type: string
                     description: URL for further information
-                    example: https://developer.nexmo.com/api-errors/account/secret-management#validation
+                    example: https://developer.vonage.com/api-errors/account/secret-management#validation
                   title:
                     type: string
                     description: Description of the error
@@ -353,7 +353,7 @@ paths:
                   type:
                     type: string
                     description: URL for further information
-                    example: https://developer.nexmo.com/api-errors/account/secret-management#delete-last-secret
+                    example: https://developer.vonage.com/api-errors/account/secret-management#delete-last-secret
                   title:
                     type: string
                     description: Description of the error
@@ -392,7 +392,7 @@ components:
       type: http
       scheme: basic
       description: >-
-        Provide an `Authorization` header, with a value of "Basic" followed by the result of base64-encoding your Vonage API key and secret separated by a colon. You can find your API key and secret on the [dashboard](https://dashboard.nexmo.com) and more information is available [on the developer portal](https://developer.nexmo.com/concepts/guides/authentication#header-based-api-key-and-secret-authentication).
+        Provide an `Authorization` header, with a value of "Basic" followed by the result of base64-encoding your Vonage API key and secret separated by a colon. You can find your API key and secret on the [dashboard](https://dashboard.nexmo.com) and more information is available [on the developer portal](https://developer.vonage.com/concepts/guides/authentication#header-based-api-key-and-secret-authentication).
 
         If your API key were aaa012 and your API secret were abc123456789 then your HTTP header would be: `Authorization: Basic YWFhMDEyOmFiYzEyMzQ1Njc4OQ==`
 
@@ -516,8 +516,8 @@ components:
         type:
           type: string
           description: URL for further information
-          # example: https://developer.nexmo.com/api-errors#invalid-id
-          example: https://developer.nexmo.com/api-errors#invalid-api-key
+          # example: https://developer.vonage.com/api-errors#invalid-id
+          example: https://developer.vonage.com/api-errors#invalid-api-key
         title:
           type: string
           description: Description of the error
@@ -576,7 +576,7 @@ components:
         type:
           type: string
           description: URL for further information
-          example: https://developer.nexmo.com/api-errors#invalid-id
+          example: https://developer.vonage.com/api-errors#invalid-id
         title:
           type: string
           description: Description of the error
@@ -651,7 +651,7 @@ components:
               type:
                 type: string
                 description: URL for further information
-                example: https://developer.nexmo.com/
+                example: https://developer.vonage.com/
               title:
                 type: string
                 description: Description of the error

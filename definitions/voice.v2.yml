@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.0
 info:
-  version: 2.2.2
+  version: 2.2.3
   title: Voice API BETA
   description: |
     This is the *beta* version of the Voice API. Calls created with v2 must be managed
@@ -14,7 +14,7 @@ info:
   contact:
     name: Vonage DevRel
     email: devrel@vonage.com
-    url: "https://developer.nexmo.com/"
+    url: "https://developer.vonage.com/"
 servers:
   - url: https://api.nexmo.com/v2/calls
 paths:
