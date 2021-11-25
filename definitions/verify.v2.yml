@@ -139,6 +139,22 @@ paths:
     #           schema:
     #             $ref: "#/components/schemas/ErrorThrottled"
 
+x-webhooks:
+  request-status-update:
+    '{$request.body#/callback}':
+      post:
+        summary: Request status update
+        operationId: request-status-update
+        x-example-path: '/webhooks/request-status-update'
+        description: An inbound status update for a particular request.
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyResource'
+
+
 components:
   requestBodies:
     CheckPINRequest:
@@ -178,21 +194,6 @@ components:
         type: string
 
   schemas:
-    ClientRef:
-      type: string
-      description: If the `client-ref` is set when the request is sent, it will be included in the callbacks
-      example: my-personal-reference
-
-    # Country:
-    #   type: string
-    #   description: If you do not provide the `to.number` in international format or you are not sure if `to.number` is correctly formatted, specify the two-character country code in `country`. Verify will then format the number for you.
-    #   pattern: '^[A-Z]{2}'
-    #   example: US
-
-    Brand:
-      type: string
-      description: The brand that is sending the verification request.
-      example: "ACME, Inc"
 
     NewRequestBase:
       type: object
@@ -257,7 +258,6 @@ components:
                   "to": "447700900000"
                 }
               ]
-
 
     NewPINRequestWorkflowWhatsApp:
       title: WhatsApp
@@ -351,14 +351,6 @@ components:
       example: '447700900000'
       description: The phone number to contact, in the [E.164](https://en.wikipedia.org/wiki/E.164) format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000.
 
-    # PINExpiry:
-    #   type: integer
-    #   description: How long the generated PIN code is valid for
-    #   minimum: 60
-    #   maximum: 3600
-    #   default: 300
-    #   example: 300
-
     PINLength:
       type: integer
       description: Length of the PIN to send to the user
@@ -373,107 +365,108 @@ components:
         - 9
         - 10
 
+    ClientRef:
+      type: string
+      description: If the `client-ref` is set when the request is sent, it will be included in the callbacks
+      example: my-personal-reference
+
+    Brand:
+      type: string
+      description: The brand that is sending the verification request.
+      example: "ACME, Inc"
+    
     RequestId:
       type: string
       description: 'The ID of the request'
       example: 'c11236f4-00bf-4b89-84ba-88b25df97315'
 
-    # Sender:
-    #   type: string
-    #   description: Identify the originator of this message to the message recipient. Restrictions may apply.
-    #   minLength: 2
-    #   maxLength: 16
-    #   example: 'ACME, Inc'
-
-    # To:
-    #   description: List of contact options to attempt to send a 
-    #   oneOf:
-    #     - $ref: '#/components/schemas/ToTelephone'
-    #     - $ref: '#/components/schemas/ToFacebook'
-
-    # ToTelephone:
-    #   type: object
-    #   required:
-    #     - type
-    #     - number
-    #   properties:
-    #     type:
-    #       type: string
-    #       description: The type of telephone-number-based message you would like to send
-    #       example: 'sms'
-    #       enum:
-    #         - sms
-    #         - viber_service_msg
-    #         - voice
-    #         - whatsapp
-    #     number:
-    #       $ref: '#/components/schemas/MSISDN'
-    #     pin:
-    #       $ref: '#/components/schemas/PIN'
-
-    # ToFacebook:
-    #   type: object
-    #   required:
-    #     - type
-    #     - account_id
-    #   properties:
-    #     type:
-    #       type: string
-    #       description: The type of Facebook-account-based message you would like to send
-    #       example: 'facebook'
-    #       enum:
-    #         - facebook
-    #     account_id:
-    #       type: string
-    #       description: Facebook Recipient ID
-    #       example: "1254477777772919"
-    #     pin:
-    #       $ref: '#/components/schemas/PIN'
-
     VerifyResource:
       required:
         - request_id
+        - submitted_at
+        - status
+        - workflow
       properties:
         request_id:
           $ref: '#/components/schemas/RequestId'
-        # status:
-        #   type: string
-        #   description: Current status of this request
-        #   example: in_progress
-        #   enum:
-        #     - in_progress
-        #     - completed
-        #     - failed
-        #     - expired
-        #     - cancelled
+        submitted_at:
+          type: string
+          description: >-
+            The date and time the verification request was submitted, in ISO 8601 format.
+          example: "2020-01-01T14:00:00.000Z"
+        status:
+          type: string
+          description: Current status of this request
+          example: in_progress
+          enum:
+            - in_progress
+            - completed
+            - failed
+            - expired
+            - cancelled
+        workflow:
+          type: array
+          items:
+            type: object
+            properties:
+              channel:
+                type: string
+                description: "The channel"
+                enum: 
+                  - sms
+                  - whatsapp
+                  - voice
+              initiated_at:
+                type: string
+                description: >-
+                  The date and time the current step in the verification request was initiated, in ISO 8601 format.
+              timeout_seconds:
+                type: integer
+                description: >-
+                  The number of seconds before the current step in the verification request times out.
+              status:
+                type: string
+                description: Current status of this request
+                example: in_progress
+                enum:
+                  - unused
+                  - in_progress
+                  - completed
+                  - failed
+                  - expired
+                  - cancelled
+          example: [
+            {
+              "channel": "sms",
+              "initiated_at": "2020-01-01T14:00:00.000Z",
+              "timeout_seconds": 60,
+              "status": "expired"
+            },
+            {
+              "channel": "whatsapp",
+              "initiated_at": "2020-01-01T14:02:00.000Z",
+              "timeout_seconds": 300,
+              "status": "in_progress"
+            },
+            {
+              "channel": "voice",
+              "initiated_at": "2020-01-01T15:05:00.000Z",
+              "status": "unused"
+            }
+          ]
         # account_key:
         #   type: string
         #   description: The API key that made this Verify Request (may include subaccounts)
         #   example: "acbd1234"
-        # messages_cost:
-        #   type: number
-        #   description: The per-message/call costs for this request so far, in EUR. This number may update as the request progresses.
-        # submitted_at:
-        #   type: string
-        #   description: >-
-        #     The date and time the verification request was submitted, in ISO 8601 format.
-        #   example: "2020-01-01T14:00:00.000Z"
-        # finalized_at:
-        #   type: string
-        #   description: >-
-        #     The date and time the verification request was completed. This
-        #     response parameter is in ISO 8601 format.
-        #   example: "2020-01-01T14:00:00.000Z"
-        # first_event_at:
-        #   type: string
-        #   description: >-
-        #     The date and time the first verification attempt was made, in ISO 8601 format.
-        #   example: "2020-01-01T14:00:00.000Z"
-        # last_event_at:
-        #   type: string
-        #   description: >-
-        #     The date and time the last verification attempt was made, in ISO 8601 format.
-        #   example: "2020-01-01T14:00:00.000Z"
+        total_cost:
+          type: number
+          description: The total cost for this request so far, in EUR. This number may update as the request progresses.
+        finalized_at:
+          type: string
+          description: >-
+            The date and time the verification request was completed. This
+            response parameter is in ISO 8601 format.
+          example: "2020-01-01T14:00:00.000Z"
         # events:
         #   type: array
         #   description: The events that have already taken place
@@ -497,6 +490,7 @@ components:
         #         type: string
         #         description: The date and time that the event was started, in ISO 8601 format.
         #         example: "2020-01-01T14:00:00.000Z"
+
 
     PIN:
       type: string
@@ -536,7 +530,6 @@ components:
           detail: 'The `workflow` parameter is required and must be an array'
           instance: abcd
 
-    
     ErrorInvalidRequest:
       type: object
       properties:
@@ -593,6 +586,7 @@ components:
           type: string
           description: Internal Trace ID
           example: bf0ca0bf927b3b52e3cb03217e1a1ddf
+
 
   securitySchemes:
     basicAuth:
