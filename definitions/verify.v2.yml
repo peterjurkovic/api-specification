@@ -6,7 +6,7 @@ info:
   contact:
     name: Vonage DevRel
     email: devrel@vonage.ctom
-    url: 'https://developer.nexmo.com/'
+    url: 'https://developer.vonage.com/'
 servers:
   - url: https://api.nexmo.com/v2/verify
 security:
@@ -48,7 +48,7 @@ paths:
                         example: There was a problem with your submission
                       type:
                         description: Link to error / remediation options
-                        example: 'https://developer.nexmo.com/api-errors/verify#invalid-parameters'
+                        example: 'https://developer.vonage.com/api-errors/verify#invalid-parameters'
                       detail:
                         description: Additional information about the error
                         example: Missing required field `workflow`
@@ -580,7 +580,7 @@ components:
         type:
           type: string
           description: Link to error / remediation options
-          example: https://developer.nexmo.com/api-errors/verify#rate-limit
+          example: https://developer.vonage.com/api-errors/verify#rate-limit
         title:
           type: string
           description: Generic error message
