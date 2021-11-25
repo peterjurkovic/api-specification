@@ -33,7 +33,7 @@ paths:
                 properties:
                   request_id:
                     $ref: '#/components/schemas/RequestId'
-        "422":
+        "404":
           description: The request could not be found
           content:
             application/json:
@@ -69,14 +69,12 @@ paths:
         <p style="font-weight:bold; color: red;">To be implemented.</p>
         Returns detailed information about the original request, its current status, and any events that have already taken place.
       responses:
-        "204":
-          description: No content
-        # "200":
-        #   description: Good
-        #   content:
-        #     application/json:
-        #       schema:
-        #         $ref: '#/components/schemas/VerifyResource'
+        "200":
+          description: Good
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyResource'
         # "404":
         #   description: "No such request"
         #   content:
@@ -281,12 +279,6 @@ components:
                     example: whatsapp
                   to:
                     $ref: '#/components/schemas/To'
-                  from:
-                    type: string
-                    minLength: 1
-                    maxLength: 50
-                    example: '447700900000'
-                    description: The phone number the verification is coming from, in the [E.164](https://en.wikipedia.org/wiki/E.164) format. Don't use a leading + or 00 when entering a phone number, start with the country code, for example, 447700900000.
                   template:
                     type: string
                     example: abc:123:verify
@@ -374,6 +366,11 @@ components:
       example: 4
       enum:
         - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
         - 10
 
     RequestId:
@@ -439,67 +436,67 @@ components:
       properties:
         request_id:
           $ref: '#/components/schemas/RequestId'
-        status:
-          type: string
-          description: Current status of this request
-          example: in_progress
-          enum:
-            - in_progress
-            - completed
-            - failed
-            - expired
-            - cancelled
-        account_key:
-          type: string
-          description: The API key that made this Verify Request (may include subaccounts)
-          example: "acbd1234"
-        messages_cost:
-          type: number
-          description: The per-message/call costs for this request so far, in EUR. This number may update as the request progresses.
-        submitted_at:
-          type: string
-          description: >-
-            The date and time the verification request was submitted, in ISO 8601 format.
-          example: "2020-01-01T14:00:00.000Z"
-        finalized_at:
-          type: string
-          description: >-
-            The date and time the verification request was completed. This
-            response parameter is in ISO 8601 format.
-          example: "2020-01-01T14:00:00.000Z"
-        first_event_at:
-          type: string
-          description: >-
-            The date and time the first verification attempt was made, in ISO 8601 format.
-          example: "2020-01-01T14:00:00.000Z"
-        last_event_at:
-          type: string
-          description: >-
-            The date and time the last verification attempt was made, in ISO 8601 format.
-          example: "2020-01-01T14:00:00.000Z"
-        events:
-          type: array
-          description: The events that have already taken place
-          items:
-            type: object
-            required:
-              - type
-              - created_at
-            properties:
-              type:
-                type: string
-                description: The communication type
-                example: "sms"
-                enum:
-                  - sms
-                  - voice
-                  - whatsapp
-                  - viber_service_msg
-                  - messenger
-              created_at:
-                type: string
-                description: The date and time that the event was started, in ISO 8601 format.
-                example: "2020-01-01T14:00:00.000Z"
+        # status:
+        #   type: string
+        #   description: Current status of this request
+        #   example: in_progress
+        #   enum:
+        #     - in_progress
+        #     - completed
+        #     - failed
+        #     - expired
+        #     - cancelled
+        # account_key:
+        #   type: string
+        #   description: The API key that made this Verify Request (may include subaccounts)
+        #   example: "acbd1234"
+        # messages_cost:
+        #   type: number
+        #   description: The per-message/call costs for this request so far, in EUR. This number may update as the request progresses.
+        # submitted_at:
+        #   type: string
+        #   description: >-
+        #     The date and time the verification request was submitted, in ISO 8601 format.
+        #   example: "2020-01-01T14:00:00.000Z"
+        # finalized_at:
+        #   type: string
+        #   description: >-
+        #     The date and time the verification request was completed. This
+        #     response parameter is in ISO 8601 format.
+        #   example: "2020-01-01T14:00:00.000Z"
+        # first_event_at:
+        #   type: string
+        #   description: >-
+        #     The date and time the first verification attempt was made, in ISO 8601 format.
+        #   example: "2020-01-01T14:00:00.000Z"
+        # last_event_at:
+        #   type: string
+        #   description: >-
+        #     The date and time the last verification attempt was made, in ISO 8601 format.
+        #   example: "2020-01-01T14:00:00.000Z"
+        # events:
+        #   type: array
+        #   description: The events that have already taken place
+        #   items:
+        #     type: object
+        #     required:
+        #       - type
+        #       - created_at
+        #     properties:
+        #       type:
+        #         type: string
+        #         description: The communication type
+        #         example: "sms"
+        #         enum:
+        #           - sms
+        #           - voice
+        #           - whatsapp
+        #           - viber_service_msg
+        #           - messenger
+        #       created_at:
+        #         type: string
+        #         description: The date and time that the event was started, in ISO 8601 format.
+        #         example: "2020-01-01T14:00:00.000Z"
 
     PIN:
       type: string
