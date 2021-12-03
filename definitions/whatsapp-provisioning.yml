@@ -1083,7 +1083,7 @@ components:
           x-nexmo-developer-collection-description-shown: true
           type: array
           example:
-              - https://example.com
+            - https://example.com
           items:
             type: string
           minItems: 1
@@ -1190,7 +1190,7 @@ components:
     Resend-OTP:
       description: The method for delivering the OTP
       properties:
-         method:
+        method:
           type: string
           example: sms
           enum:
