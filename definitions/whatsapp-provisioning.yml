@@ -426,7 +426,7 @@ paths:
           content:
             application/json:
               schema:
-              $ref: "#/components/schemas/ErrorNotFound"
+                $ref: "#/components/schemas/ErrorNotFound"
 
     post:
       description: Create Third-party Stickerpacks.
@@ -516,7 +516,7 @@ paths:
           content:
             application/json:
               schema:
-              $ref: "#/components/schemas/ErrorNotFound"
+                $ref: "#/components/schemas/ErrorNotFound"
 
   /deployments/{deployment_id}/stickerpacks/{stickerpack_id}:
     get:
@@ -527,6 +527,7 @@ paths:
       operationId: getStickerpacksById
       parameters:
         - $ref: "#/components/parameters/deployment_id"
+        - $ref: "#/components/parameters/stickerpack_id"
       responses:
         '200':
           description: Return list of available stickerpacks
@@ -545,7 +546,7 @@ paths:
           content:
             application/json:
               schema:
-              $ref: "#/components/schemas/ErrorNotFound"
+                $ref: "#/components/schemas/ErrorNotFound"
 
 
   /deployments/{deployment_id}/stickerpacks/{stickerpack_id}/stickers:
