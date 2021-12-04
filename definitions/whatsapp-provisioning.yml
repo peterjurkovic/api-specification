@@ -491,7 +491,7 @@ paths:
 
   /deployments/{deployment_id}/stickerpacks?namespace=whatsapp:
     get:
-      description: Get's Third-Party (whatsapp) Stickerpacks
+      description: Get's First-Party (whatsapp) Stickerpacks
       tags:
         - Stickerpacks
       summary: Get's First-Party Stickerpacks
@@ -551,7 +551,7 @@ paths:
 
   /deployments/{deployment_id}/stickerpacks/{stickerpack_id}/stickers:
     get:
-      description: Use this request to retrieve stickers from a given stickerpack
+      description: Use this request to retrieve stickers from a stickerpack
       tags:
         - Stickers
       summary: Get's Third-Party Stickers
@@ -599,6 +599,7 @@ paths:
                 image_data_id:
                   description: The ID for the sticker media.
                   type: string
+                  example: "id"
                 emojis:
                   description: An array of the emojis included in the stickerpack.
                   type: array
@@ -669,7 +670,7 @@ paths:
         - $ref: "#/components/parameters/sticker_index"
       responses:
         '200':
-          description: Returns a sticker
+          description: Creates a sticker
           content:
             application/json:
               schema:
