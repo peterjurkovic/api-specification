@@ -2,8 +2,8 @@ openapi: "3.0.3"
 info:
   version: 0.1.4
   title: WhatsApp Provisioning  API
-  description: |
-    The WhatsApp Manager API enables customers to deploy a WhatsApp cluster, perform One Time Password (OTP) verification, and update profile information
+  description: | 
+    The WhatsApp Manager API enables customers to deploy a WhatsApp cluster, perform One Time Password (OTP) verification, and update profile information 
   contact:
     name: Nexmo DevRel
     email: devrel@nexmo.com
@@ -14,7 +14,7 @@ servers:
 paths:
   /deployments:
     post:
-      tags:
+      tags: 
         - Deployment
       summary: Provision WhatsApp deployment
       description: "This API request provisions a WhatsApp cluster. Once provisioned, the cluster progresses through the following deployment stages: `INITIALIZING`, `CREATING_CLUSTER` and `CLUSTER_CREATED`. When the `CLUSTER_CREATED` stage is reached an OTP voice call or SMS is sent to the specified number and the deployment status becomes `CODE_SENT`. When the OTP is received, call the Verify API to complete the process."
@@ -32,7 +32,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/DeploymentResponse"
-
+          
         '400':
           description: Bad Request.
           content:
@@ -40,7 +40,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorInvalidJson"
         '401':
-          description: Invalid Credentials
+          description: Invalid Credentials        
           content:
             application/json:
               schema:
@@ -60,7 +60,7 @@ paths:
   /deployments/{deployment_id}:
     get:
       description: Retrieves information about the deployment at the given deployment id.
-      tags:
+      tags: 
         - Deployment
       operationId: get_deployment
       summary: Get Deployment Status
@@ -72,9 +72,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeploymentResponse"
+                $ref: "#/components/schemas/DeploymentResponse"        
         '401':
-          description: Invalid Credentials
+          description: Invalid Credentials        
           content:
             application/json:
               schema:
@@ -95,9 +95,9 @@ paths:
         - $ref: "#/components/parameters/deployment_id"
       responses:
         '204':
-          description: No Content
+          description: No Content        
         '401':
-          description: Invalid Credentials
+          description: Invalid Credentials        
           content:
             application/json:
               schema:
@@ -118,7 +118,7 @@ paths:
   /deployments/{deployment_id}/resend-otp:
     post:
       tags:
-        - OTP
+        - OTP            
       summary: Resend OTP
       description: If you do not receive the code in five minutes then you can request for it to be sent again.
       operationId: resend-otp
@@ -130,13 +130,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Resend-OTP'
-      responses:
+      responses:        
         '202':
           description: Code sent.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResendOtpResponse'
+                $ref: '#/components/schemas/ResendOtpResponse'                  
         '400':
           description: Bad Request.
           content:
@@ -144,7 +144,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorInvalidJson"
         '401':
-          description: Invalid Credentials
+          description: Invalid Credentials        
           content:
             application/json:
               schema:
@@ -160,7 +160,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorConflictResendOtp"
+                $ref: "#/components/schemas/ErrorConflictResendOtp"        
         '429':
           description: Throttled.
           content:
@@ -170,7 +170,7 @@ paths:
   /deployments/{deployment_id}/verify:
     post:
       tags:
-        - OTP
+        - OTP      
       summary: Verify OTP
       description: When a code is successfully verified, WhatsApp Manager will move the number from a `CODE_VERIFIED` state to a `FINALIZING` state where additional checks are made and it is assigned to your API Key. Once this is complete it will enter a `READY` state and the number is ready to use.
       operationId: verify
@@ -189,15 +189,15 @@ paths:
                   example: '674639'
       responses:
         '201':
-          description: OK
+          description: OK         
           content:
             application/json:
               schema:
-                properties:
+                properties:                  
                   deployment_id:
                     example: aaaaaaaa-bbbb-cccc-dddd-0123456789ab
                     type: string
-                    description: the id of your deployment
+                    description: the id of your deployment 
                   status:
                     type: string
                     example: Deployment was Created
@@ -208,7 +208,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorInvalidJson"
         '401':
-          description: Invalid Credentials
+          description: Invalid Credentials        
           content:
             application/json:
               schema:
@@ -218,13 +218,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorNotFound"
+                $ref: "#/components/schemas/ErrorNotFound"       
         '422':
           description: Unprocessable
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorVerificationFailed"
+                $ref: "#/components/schemas/ErrorVerificationFailed"       
         '429':
           description: Throttled.
           content:
@@ -248,7 +248,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/profile"
         '401':
-          description: Invalid Credentials
+          description: Invalid Credentials        
           content:
             application/json:
               schema:
@@ -262,7 +262,7 @@ paths:
     patch:
       description: Updates profile information for deployment.
       tags:
-        - Profile
+        - Profile      
       summary: Update WhatsApp Profile
       operationId: updateProfile
       parameters:
@@ -273,7 +273,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/profile"
+              $ref: "#/components/schemas/profile"              
       responses:
         '200':
           description: OK
@@ -281,7 +281,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/profile"
-
+          
         '400':
           description: Bad Request.
           content:
@@ -289,7 +289,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorInvalidJson"
         '401':
-          description: Invalid Credentials
+          description: Invalid Credentials        
           content:
             application/json:
               schema:
@@ -329,7 +329,7 @@ paths:
                     type: string
                     example: https://www.example.com/img.png
         '401':
-          description: Invalid Credentials
+          description: Invalid Credentials        
           content:
             application/json:
               schema:
@@ -343,7 +343,7 @@ paths:
     post:
       description: Replaces profile photo with photo at the given URL for the deployment.
       tags:
-        - Profile
+        - Profile      
       summary: Update Profile Photo
       operationId: updateProfilePhoto
       parameters:
@@ -355,7 +355,7 @@ paths:
           application/json:
             schema:
               type: object
-              required:
+              required: 
                 - image_url
               properties:
                 image_url:
@@ -381,7 +381,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorInvalidJson"
         '401':
-          description: Invalid Credentials
+          description: Invalid Credentials        
           content:
             application/json:
               schema:
@@ -843,7 +843,7 @@ components:
                 description : Name of invalid parameter
                 example: url
               reason:
-                type: string
+                type: string 
                 description: Reason of failure
                 example: Url was not in a valid format
     InvalidParametersUpdateProfile:
@@ -880,7 +880,7 @@ components:
                 description : Name of invalid parameter
                 example: email
               reason:
-                type: string
+                type: string 
                 description: Reason of failure
                 example: Email format invalid
     ErrorStateConflict:
@@ -902,7 +902,7 @@ components:
         detail:
           type: string
           description: Additional information about the error
-          example: Deployment cannot be deleted because it is in the DELETING state.
+          example: Deployment cannot be deleted because it is in the DELETING state. 
         instance:
           type: string
           description: Internal Trace ID
@@ -1058,7 +1058,7 @@ components:
           minLength: 1
           maxLength: 128
         vertical:
-          description: |
+          description: | 
             Your business' industry - must be recognized by WhatsApp.
           type: string
           example: Food and Grocery
@@ -1085,11 +1085,11 @@ components:
           x-nexmo-developer-collection-description-shown: true
           type: array
           example:
-            - https://example.com
+              - https://example.com
           items:
             type: string
           minItems: 1
-          maxItems: 2
+          maxItems: 2      
     ResendOtpResponse:
       type: object
       properties:
@@ -1102,7 +1102,7 @@ components:
         method:
           type: string
           example: sms
-          description: The method the OTP resend will use.
+          description: The method the OTP resend will use.   
     DeploymentResponse:
       description: A deployment response
       type: object
@@ -1134,7 +1134,7 @@ components:
               type: string
               description: The current status of the deployment.
               example: INITIALIZING
-              enum:
+              enum: 
                 - INITIALIZING
                 - CREATING_CLUSTER
                 - CLUSTER_CREATED
@@ -1154,7 +1154,7 @@ components:
       required:
         - country_code
         - number
-        - vname_certificate
+        - vname_certificate 
         - method
         - waba_id
       properties:
@@ -1182,7 +1182,7 @@ components:
         pin:
           type: string
           description: Required if you previously set a PIN when creating a WhatsApp number.
-          example: '123456'
+          example: '123456'    
     vname_certificate:
       description: |
         The certificate, which you can retrieve from your WhatsApp Business dashboard.
@@ -1192,7 +1192,7 @@ components:
     Resend-OTP:
       description: The method for delivering the OTP
       properties:
-        method:
+         method:
           type: string
           example: sms
           enum:
